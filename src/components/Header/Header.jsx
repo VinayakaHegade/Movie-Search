@@ -5,7 +5,11 @@ const Header = () => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.appDetailsContainer}>
-        <img src="./video-camera.png" className={styles.appLogo}></img>
+        <img
+          src="./video-camera.png"
+          className={styles.appLogo}
+          alt="App Logo"
+        />
         <h1 className={styles.appName}>Movie Search App</h1>
       </div>
       <SearchBar />
