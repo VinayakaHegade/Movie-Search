@@ -1,33 +1,35 @@
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import styles from "./SearchBar.module.css";
 import useDebounce from "../../hooks/useDebounce";
+import styles from "./SearchBar.module.css";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
-const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const debouncedSearchValue = useDebounce(searchQuery, 300);
-
-  const url = `https://api.themoviedb.org/3/search/movie?query=${debouncedSearchValue}&api_key=${apiKey}`;
+const SearchBar = ({ setMovies }) => {
+  const [searchValue, setSearchValue] = useState("");
+  const debouncedSearchValue = useDebounce(searchValue, 300);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMovieData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(
+          `https://api.themoviedb.org/3/search/movie?query=${debouncedSearchValue}&api_key=${apiKey}`
+        );
         const data = await response.json();
-        console.log(data);
+        console.log(data.results)
+        setMovies(data?.results);
       } catch (error) {
-        console.error("Failed to fetch data: ", error);
+        console.error("Failed to fetch movie data: ", error);
       }
     };
 
     if (debouncedSearchValue) {
-      fetchData();
+      fetchMovieData();
     }
-  }, [debouncedSearchValue, url]);
+  }, [debouncedSearchValue, setMovies]);
 
-  const handleSearchQueryChange = (e) => {
-    setSearchQuery(e.target.value);
+  const handleSearchInputChange = (e) => {
+    setSearchValue(e.target.value);
   };
 
   return (
@@ -35,16 +37,20 @@ const SearchBar = () => {
       <img
         src="./search-icon.svg"
         className={styles.searchIcon}
-        alt="Search Icon"
+        alt="Icon for search"
       />
       <input
-        value={searchQuery}
-        onChange={handleSearchQueryChange}
+        value={searchValue}
+        onChange={handleSearchInputChange}
         className={styles.searchInput}
         placeholder="Search Movie"
       />
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  setMovies: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

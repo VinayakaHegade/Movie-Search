@@ -1,20 +1,24 @@
-import SearchBar from "../SearchBar/SearchBar";
+import PropTypes from "prop-types";
 import styles from "./Header.module.css";
 
-const Header = () => {
+const Header = ({ children }) => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.appDetailsContainer}>
         <img
           src="./video-camera.png"
           className={styles.appLogo}
-          alt="App Logo"
+          alt="Logo of the Movie Search App"
         />
         <h1 className={styles.appName}>Movie Search App</h1>
       </div>
-      <SearchBar />
+      {children}
     </header>
   );
+};
+
+Header.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Header;

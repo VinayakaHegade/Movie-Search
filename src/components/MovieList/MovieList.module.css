@@ -1,0 +1,45 @@
+.movieListContainer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 3rem;
+  gap: 2.5rem;
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  box-shadow: rgb(170, 170, 170) 0px 3px 10px 0px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.movieCardImage {
+  height: 362px;
+  object-fit: cover;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.movieCardDetails {
+  padding: 10px;
+}
+
+.movieTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: black;
+  line-height: 2.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.movieData {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movieDataItem {
+  font-size: 1.6rem;
+  color: black;
+  text-transform: capitalize;
+}
