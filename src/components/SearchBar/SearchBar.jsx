@@ -1,32 +1,11 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
-import useDebounce from "../../hooks/useDebounce";
+import { useState } from "react";
+import useMovieData from "../../hooks/useMovieData";
 import styles from "./SearchBar.module.css";
 
-const apiKey = import.meta.env.VITE_API_KEY;
-
-const SearchBar = ({ setMovies }) => {
+const SearchBar = ({ updateMovies, setError }) => {
   const [searchValue, setSearchValue] = useState("");
-  const debouncedSearchValue = useDebounce(searchValue, 300);
-
-  useEffect(() => {
-    const fetchMovieData = async () => {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/search/movie?query=${debouncedSearchValue}&api_key=${apiKey}`
-        );
-        const data = await response.json();
-        console.log(data.results)
-        setMovies(data?.results);
-      } catch (error) {
-        console.error("Failed to fetch movie data: ", error);
-      }
-    };
-
-    if (debouncedSearchValue) {
-      fetchMovieData();
-    }
-  }, [debouncedSearchValue, setMovies]);
+  useMovieData(searchValue, updateMovies, setError);
 
   const handleSearchInputChange = (e) => {
     setSearchValue(e.target.value);
@@ -50,7 +29,8 @@ const SearchBar = ({ setMovies }) => {
 };
 
 SearchBar.propTypes = {
-  setMovies: PropTypes.func.isRequired,
+  updateMovies: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
