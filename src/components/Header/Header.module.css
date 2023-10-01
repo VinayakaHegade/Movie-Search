@@ -23,4 +23,15 @@
 .appName {
   font-size: 2.5rem;
   font-weight: bold;
+  line-height: 120%;
+}
+
+@media (max-width: 768px) {
+  .appDetailsContainer {
+    gap: 1rem;
+  }
+
+  .appName {
+    font-size: 1.8rem;
+  }
 }

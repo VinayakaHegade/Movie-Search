@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { fetchMovies } from "../api/api";
 import useDebounce from "./useDebounce";
 
-const useMovieData = (searchValue, updateMovies, setError) => {
+const useMovieData = (searchValue, updateMovies, setError, setMovie) => {
   const debouncedSearchValue = useDebounce(searchValue, 300);
 
   useEffect(() => {
@@ -24,10 +24,12 @@ const useMovieData = (searchValue, updateMovies, setError) => {
       }
     };
 
+    setMovie(null);
+
     if (debouncedSearchValue) {
       fetchData();
     }
-  }, [debouncedSearchValue, updateMovies, setError]);
+  }, [debouncedSearchValue, updateMovies, setError, setMovie]);
 };
 
 export default useMovieData;

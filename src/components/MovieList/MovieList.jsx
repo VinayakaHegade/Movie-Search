@@ -4,7 +4,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import MovieCard from "./MovieCard";
 import styles from "./MovieList.module.css";
 
-const MovieList = ({ movies, error }) => {
+const MovieList = ({ movies, error, setMovie }) => {
   return (
     <main className={styles.movieListContainer}>
       {error ? (
@@ -13,7 +13,7 @@ const MovieList = ({ movies, error }) => {
           actionMessage="Please try again with a different query."
         />
       ) : (
-        movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+        movies.map((movie) => <MovieCard key={movie.id} movie={movie} setMovie={setMovie} />)
       )}
     </main>
   );
@@ -22,6 +22,7 @@ const MovieList = ({ movies, error }) => {
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(moviePropType).isRequired,
   error: PropTypes.string,
+  setMovie: PropTypes.func
 };
 
 export default MovieList;

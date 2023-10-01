@@ -3,12 +3,16 @@ import { useState } from "react";
 import useMovieData from "../../hooks/useMovieData";
 import styles from "./SearchBar.module.css";
 
-const SearchBar = ({ updateMovies, setError }) => {
+const SearchBar = ({ updateMovies, setError, setMovie }) => {
   const [searchValue, setSearchValue] = useState("");
-  useMovieData(searchValue, updateMovies, setError);
+  useMovieData(searchValue, updateMovies, setError, setMovie);
 
   const handleSearchInputChange = (e) => {
-    setSearchValue(e.target.value);
+    const value = e.target.value;
+    setSearchValue(value);
+    if (value === "") {
+      updateMovies([]);
+    }
   };
 
   return (
@@ -31,6 +35,7 @@ const SearchBar = ({ updateMovies, setError }) => {
 SearchBar.propTypes = {
   updateMovies: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
+  setMovie: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

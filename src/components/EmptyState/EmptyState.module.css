@@ -1,0 +1,23 @@
+.emptyStateContainer {
+  padding: 20rem 3rem 0rem;
+  max-width: 785px;
+  margin: 0 auto;
+}
+
+.emptyStateMessage {
+  color: #000;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+@media (max-width: 768px) {
+  .emptyStateContainer {
+    padding: 5rem 3rem 0rem;
+  }
+
+  .emptyStateMessage {
+    font-size: 1.6rem;
+  }
+}

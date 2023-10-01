@@ -1,0 +1,53 @@
+.movieDetailsContainer {
+  display: flex;
+  padding: 2rem 3rem;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+  max-width: 1440px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+.movieDetailsImage {
+  max-height: 562px;
+  border-radius: 8px;
+}
+
+.movieData {
+  padding: 1.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.movieTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: black;
+  text-transform: capitalize;
+  line-height: 120%;
+  margin-bottom: 1rem;
+}
+
+.movieDataItem {
+  font-size: 1.6rem;
+  font-weight: 450;
+  color: black;
+  text-transform: capitalize;
+  line-height: 120%;
+}
+
+.movieDataItem > span {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .movieDetailsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movieData {
+    padding: 1.2rem 0;
+  }
+}

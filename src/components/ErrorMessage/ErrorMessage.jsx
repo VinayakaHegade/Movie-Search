@@ -3,11 +3,11 @@ import styles from "./ErrorMessage.module.css";
 
 const ErrorMessage = ({ errorMessage, actionMessage }) => {
   return (
-    <div className={styles.errorContainer}>
-      <img src="./no-search-results.svg" />
+    <section className={styles.errorContainer}>
+      <img src="./no-search-results.svg" alt="" />
       <h4 className={styles.errorMessage}>{errorMessage}</h4>
-      <p className={styles.actionMessage}>{actionMessage}</p>
-    </div>
+      {actionMessage && <p className={styles.actionMessage}>{actionMessage}</p>}
+    </section>
   );
 };
 

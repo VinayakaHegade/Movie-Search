@@ -20,3 +20,22 @@
   outline: none;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .searchBarContainer {
+    gap: 0.5rem;
+    padding: 0.8rem;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .searchIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .searchInput {
+    padding: 0;
+    line-height: 100%;
+  }
+}
