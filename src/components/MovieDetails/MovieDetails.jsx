@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 import { moviePropType } from "../../propTypes";
 import { formatMovieDetails } from "../../utils";
 import styles from "./MovieDetails.module.css";
@@ -5,8 +7,16 @@ import styles from "./MovieDetails.module.css";
 const MovieDetails = ({ movie }) => {
   const details = formatMovieDetails(movie);
 
+  const movieDetailsRef = useRef(null);
+
+  useEffect(() => {
+    if (movieDetailsRef.current) {
+      movieDetailsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [movie]);
+
   return (
-    <section className={styles.movieDetailsContainer}>
+    <section className={styles.movieDetailsContainer} ref={movieDetailsRef}>
       <img
         src={details.img_src}
         className={styles.movieDetailsImage}
