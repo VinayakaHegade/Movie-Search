@@ -10,9 +10,11 @@ const useMovieData = (searchValue, updateMovies, setError) => {
       try {
         const movies = await fetchMovies(debouncedSearchValue);
         if (movies.length === 0) {
-          setError(
-            "No movies found for your search. Please try again with a different query."
-          );
+          const errorMessage =
+            debouncedSearchValue.length > 20
+              ? `No movies found for your search.`
+              : `No movies found for "${debouncedSearchValue}".`;
+          setError(errorMessage);
         } else {
           setError(null);
           updateMovies(movies);

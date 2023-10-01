@@ -1,0 +1,22 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  max-width: 335px;
+}
+
+.errorMessage {
+  color: #000;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.actionMessage {
+  color: #434343;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 120%;
+}
