@@ -5,6 +5,11 @@
   max-width: 335px;
 }
 
+.noResultsImage {
+  height: 308px;
+  width: 315px;
+}
+
 .errorMessage {
   color: #000;
   text-align: center;

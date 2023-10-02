@@ -1,12 +1,10 @@
 import { useEffect, useRef } from "react";
-
 import { moviePropType } from "../../propTypes";
 import { formatMovieDetails } from "../../utils";
 import styles from "./MovieDetails.module.css";
 
 const MovieDetails = ({ movie }) => {
   const details = formatMovieDetails(movie);
-
   const movieDetailsRef = useRef(null);
 
   useEffect(() => {
@@ -27,9 +25,9 @@ const MovieDetails = ({ movie }) => {
         }
       />
       <section className={styles.movieData}>
-        <h4 className={styles.movieTitle}>
+        <h2 className={styles.movieTitle}>
           Movie : {movie.title || "Title not available"}
-        </h4>
+        </h2>
         <p className={styles.movieDataItem}>
           Year : <span>{details.year}</span>
         </p>

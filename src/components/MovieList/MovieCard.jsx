@@ -28,9 +28,9 @@ const MovieCard = ({ movie, setMovie }) => {
         alt={movie.title || "Movie poster not available"}
       />
       <div className={styles.movieCardDetails}>
-        <h4 className={styles.movieTitle}>
+        <h3 className={styles.movieTitle}>
           {movie.title || "Title not available"}
-        </h4>
+        </h3>
         <div className={styles.movieData}>
           <p className={styles.movieDataItem}>Year : {year}</p>
           <p className={styles.movieDataItem}>Rating : {rating} / 10</p>
