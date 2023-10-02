@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Header from "../components/Header/Header";
+import Header from "../../components/Header/Header";
 
 test("renders Header component with children", () => {
   render(
