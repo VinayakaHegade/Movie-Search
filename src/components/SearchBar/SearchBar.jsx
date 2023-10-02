@@ -12,6 +12,7 @@ const SearchBar = ({ updateMovies, setError, setMovie }) => {
     setSearchValue(value);
     if (value === "") {
       updateMovies([]);
+      setError(null); // To clear error and show empty state when search becomes empty
     }
   };
 
@@ -23,6 +24,7 @@ const SearchBar = ({ updateMovies, setError, setMovie }) => {
         alt="Icon for search"
       />
       <input
+        type="search"
         value={searchValue}
         onChange={handleSearchInputChange}
         className={styles.searchInput}
