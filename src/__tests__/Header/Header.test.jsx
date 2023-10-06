@@ -2,21 +2,24 @@ import { render, screen } from "@testing-library/react";
 import Header from "../../components/Header/Header";
 
 test("renders Header component with children", () => {
+  const ChildComponent = () => <div>Child Component</div>;
+
   render(
     <Header>
-      <div>Test</div>
+      <ChildComponent />
     </Header>
   );
-  const linkElement = screen.getByText(/Test/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const childElement = screen.getByText(/Child Component/i);
+  expect(childElement).toBeInTheDocument();
 });
 
-test("renders Header component with app name", () => {
-  render(
-    <Header>
-      <div />
-    </Header>
-  );
-  const appName = screen.getByText(/Movie Search App/i);
+test("renders Header component with app name and logo", () => {
+  render(<Header />);
+
+  const appName = screen.getByRole("heading", { name: "Movie Search App" });
+  const appLogo = screen.getByAltText("Logo of the Movie Search App");
+
   expect(appName).toBeInTheDocument();
+  expect(appLogo).toBeInTheDocument();
 });
