@@ -12,7 +12,7 @@ const SearchBar = ({ updateMovies, setError, setMovie }) => {
     setSearchValue(value);
     if (value === "") {
       updateMovies([]);
-      setError(null); // To clear error and show empty state when search becomes empty
+      setError(null); // To clear error and show EmptyState when search becomes empty
     }
   };
 
