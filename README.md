@@ -1,9 +1,10 @@
 ## Demo
 [![Ecomm-Shopz](https://img.shields.io/badge/Tryit-(here)-blue.svg)](https://moviesearchtmdb.netlify.app)
 
-# React App
+# Movie Search App
 
-This is a React application initialized with Vite.
+The Movie Search App is a user-friendly platform built with React. It integrates with the TMDB API to provide real-time movie data, offering a seamless experience for movie enthusiasts to explore their favorite films.
+
 
 ## Prerequisites
 
@@ -11,6 +12,9 @@ Before you begin, ensure you have met the following requirements:
 
 * You have installed the latest version of `node` and `npm`.
 * You have a TMDB API key. If you don't have one, you can create it from the TMDB API documentation.
+  * Docs Link : https://developer.themoviedb.org/docs
+  * API Key Creation Link: https://www.themoviedb.org/settings/api
+
 
 ## Running the App
 
