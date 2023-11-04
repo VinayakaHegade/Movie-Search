@@ -5,7 +5,9 @@ import styles from "./MovieList.module.css";
 
 const MovieCard = ({ movie, setMovie }) => {
   const year = movie.release_date ? extractYear(movie.release_date) : "N/A";
-  const rating = movie.vote_average ? formatRating(movie.vote_average) : "N/A";
+  const rating = movie.vote_average
+    ? `${formatRating(movie.vote_average)} / 10`
+    : "N/A";
 
   const handleClick = () => {
     setMovie(movie);
@@ -33,7 +35,7 @@ const MovieCard = ({ movie, setMovie }) => {
         </h2>
         <div className={styles.movieData}>
           <p className={styles.movieDataItem}>Year : {year}</p>
-          <p className={styles.movieDataItem}>Rating : {rating} / 10</p>
+          <p className={styles.movieDataItem}>Rating : {rating}</p>
         </div>
       </div>
     </section>
